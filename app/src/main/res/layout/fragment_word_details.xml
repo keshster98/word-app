@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".details.DetailsFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Word Details"
+            android:gravity="center"
+            android:textSize="@dimen/tx_xxl"
+            android:textStyle="bold"
+            android:padding="@dimen/xl"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/xxxxs"
+            android:background="@color/g_border" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/xl"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mbDone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#00B3FE"
+                android:layout_marginHorizontal="@dimen/xs"
+                app:cornerRadius="@dimen/xs"
+                android:textSize="@dimen/tx_xl"
+                android:text="Done" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mbUpdate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#00B3FE"
+                android:layout_marginHorizontal="@dimen/xs"
+                app:cornerRadius="@dimen/xs"
+                android:textSize="@dimen/tx_xl"
+                android:text="Update" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mbDelete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#CD0714"
+                android:layout_marginHorizontal="@dimen/xs"
+                app:cornerRadius="@dimen/xs"
+                android:textSize="@dimen/tx_xl"
+                android:text="Delete" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/xxxl">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="@dimen/xxl"
+                android:text="Hello" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold"
+                android:textSize="@dimen/xxl"
+                android:text="Meaning" />
+
+            <TextView
+                android:id="@+id/tvMeaning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/tx_xl"
+                android:text="Meaning example" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/xl"
+                android:textStyle="bold"
+                android:textSize="@dimen/tx_xxl"
+                android:text="Synonym" />
+
+            <TextView
+                android:id="@+id/tvSynonym"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/tx_xl"
+                android:text="Meaning example" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/xl"
+                android:textStyle="bold"
+                android:textSize="@dimen/tx_xxl"
+                android:text="Details" />
+
+            <TextView
+                android:id="@+id/tvDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/tx_xl"
+                android:text="Meaning example .............................................................................................................................." />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
