@@ -1,63 +1,58 @@
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.HomeFragment">
 
-    <!--App bar layout-->
-    <com.google.android.material.appbar.AppBarLayout
+    <!--Card View -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.Material3.ActionBar"
-        app:elevation="0dp">
+        android:layout_alignParentTop="true"
+        android:elevation="@dimen/xs">
 
-        <!--Card view-->
-        <androidx.cardview.widget.CardView
+        <!--Layout for the search and sort icon -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:elevation="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardUseCompatPadding="true">
+            android:layout_margin="@dimen/xl"
+            android:weightSum="10"
+            android:orientation="horizontal">
 
-            <!--Search Field-->
-
-            <!--The style ensures the grey background in the search field-->
-            <!--boxStrokeWidth = 0 ensures no underline below the search field-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/searchBarLayout"
-                android:layout_width="match_parent"
+            <!--Search bar -->
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/svSearch"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-                app:boxBackgroundMode="filled"
-                app:boxStrokeWidth="0dp"
-                app:boxCornerRadiusTopStart="12dp"
-                app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusBottomEnd="12dp">
+                android:layout_weight="9"
+                android:queryHint="Search"
+                android:background="@drawable/search_view_bg" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/searchEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/search"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </androidx.cardview.widget.CardView>
-    </com.google.android.material.appbar.AppBarLayout>
+            <!--Sort Icon -->
+            <ImageView
+                android:id="@+id/ivSort"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/xxxxl"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/xxxs"
+                android:src="@drawable/ic_sort" />
 
-    <!--Recycler View-->
+        </LinearLayout>
 
-    <!--layout_behavior ensures the recycler view's content does not overlap with the appbar-->
+    </androidx.cardview.widget.CardView>
+
+    <!--Recycler View -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvWords"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="100dp"
-        android:clipToPadding="false"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        android:layout_below="@id/cvSearch"
+        android:clipToPadding="false" />
 
     <!--Add new button -->
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -65,8 +60,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="@dimen/xxxl"
+        android:layout_marginBottom="@dimen/xxxl"
         android:text="@string/add_new"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         app:icon="@drawable/ic_outline_add_24"/>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</RelativeLayout>

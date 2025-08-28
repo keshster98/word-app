@@ -4,16 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="4dp"
+    android:layout_margin="@dimen/xs"
+    app:cardCornerRadius="@dimen/m"
+    app:cardElevation="@dimen/xxxs"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
+        android:id="@+id/llWord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="@dimen/m">
 
         <!--Word-->
 
@@ -31,10 +32,10 @@
 
         <!--android:maxLines shows at least X lines of the content within the size of the card before the ellipsize acts in at the end-->
         <TextView
-            android:id="@+id/tvContent"
+            android:id="@+id/tvMeaning"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/xs"
             android:text="@string/definition"
             android:maxLines="5"
             android:ellipsize="end"
