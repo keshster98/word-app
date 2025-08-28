@@ -5,6 +5,7 @@
             name="viewModel"
             type="com.team.wordapp.ui.manage.BaseManageViewModel" />
     </data>
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -15,7 +16,7 @@
             android:id="@+id/tvHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Placeholder"
+            android:text="@string/placeholder"
             android:textSize="@dimen/tx_xxl"
             android:textStyle="bold"
             android:layout_margin="@dimen/xl" />
@@ -37,7 +38,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Title"
+                android:text="@string/title"
                 android:textSize="@dimen/tx_xxl"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/xl"
@@ -48,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_bg"
-                android:hint="Title"
+                android:hint="@string/title"
                 android:text="@={viewModel.title}"
                 android:maxHeight="@dimen/xxxxxl"
                 android:padding="@dimen/s" />
@@ -56,7 +57,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Meaning"
+                android:text="@string/meaning"
                 android:textSize="@dimen/tx_xxl"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/xxxxl"
@@ -67,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_bg"
-                android:hint="Meaning"
+                android:hint="@string/meaning"
                 android:text="@={viewModel.meaning}"
                 android:maxHeight="@dimen/xxxxxl"
                 android:padding="@dimen/s" />
@@ -75,7 +76,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Synonyms"
+                android:text="@string/synonyms"
                 android:textSize="@dimen/tx_xxl"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/xxxxl"
@@ -86,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_bg"
-                android:hint="Synonym"
+                android:hint="@string/synonyms"
                 android:text="@={viewModel.synonyms}"
                 android:maxHeight="@dimen/xxxxxl"
                 android:padding="@dimen/s" />
@@ -94,7 +95,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Details"
+                android:text="@string/details"
                 android:textSize="@dimen/tx_xxl"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/xxxxl"
@@ -105,25 +106,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/xxxxxxl"
                 android:background="@drawable/edit_text_bg"
-                android:hint="Details............................................................................................................................................"
+                android:hint="@string/details_with_dots"
                 android:text="@={viewModel.details}"
                 android:gravity="top"
                 android:maxHeight="@dimen/xxxxxxl"
                 android:padding="@dimen/s" />
-
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/mbSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Placeholder"
+            android:text="@string/placeholder"
             android:layout_alignParentBottom="true"
             android:padding="@dimen/xl"
             app:cornerRadius="@dimen/xl"
             android:textSize="@dimen/tx_xl"
             android:backgroundTint="@color/cs_blue"
             android:layout_margin="@dimen/xxxl" />
-
     </RelativeLayout>
 </layout>

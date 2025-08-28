@@ -31,6 +31,11 @@ class WordRepo private constructor() {
         items[word.id!!] = word
     }
 
+    // Deletes a specific word from the repo
+    fun deleteWord(id: Int) {
+        items.remove(id)
+    }
+
     // Random word card generator
     fun generateRandomWords(n: Int) {
         repeat(n) {

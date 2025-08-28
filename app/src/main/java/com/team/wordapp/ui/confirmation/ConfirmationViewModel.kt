@@ -7,6 +7,6 @@ class ConfirmationViewModel: ViewModel() {
     private val repo = WordRepo.getInstance()
 
     fun delete(wordId: Int) {
-//        repo.deleteWord(wordId)
+        repo.deleteWord(wordId)
     }
 }
