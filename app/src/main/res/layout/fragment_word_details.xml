@@ -11,56 +11,56 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Word Details"
+            android:text="@string/word_details"
             android:gravity="center"
-            android:textSize="@dimen/tx_xxl"
+            android:textSize="@dimen/text_xxl"
             android:textStyle="bold"
-            android:padding="@dimen/xl"/>
+            android:padding="@dimen/space_xl"/>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/xxxxs"
+            android:layout_height="@dimen/space_xxxxs"
             android:background="@color/g_border" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/xl"
+            android:padding="@dimen/space_xl"
             android:orientation="horizontal"
             android:weightSum="3">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/mbDone"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/space_nil"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#00B3FE"
-                android:layout_marginHorizontal="@dimen/xs"
-                app:cornerRadius="@dimen/xs"
-                android:textSize="@dimen/tx_xl"
-                android:text="Done" />
+                android:backgroundTint="@color/cs_blue"
+                android:layout_marginHorizontal="@dimen/space_xs"
+                app:cornerRadius="@dimen/space_xs"
+                android:textSize="@dimen/text_xl"
+                android:text="@string/done" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/mbUpdate"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/space_nil"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#00B3FE"
-                android:layout_marginHorizontal="@dimen/xs"
-                app:cornerRadius="@dimen/xs"
-                android:textSize="@dimen/tx_xl"
-                android:text="Update" />
+                android:backgroundTint="@color/cs_blue"
+                android:layout_marginHorizontal="@dimen/space_xs"
+                app:cornerRadius="@dimen/space_xs"
+                android:textSize="@dimen/text_xl"
+                android:text="@string/update" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/mbDelete"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/space_nil"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#CD0714"
-                android:layout_marginHorizontal="@dimen/xs"
-                app:cornerRadius="@dimen/xs"
-                android:textSize="@dimen/tx_xl"
-                android:text="Delete" />
+                android:backgroundTint="@color/cs_red"
+                android:layout_marginHorizontal="@dimen/space_xs"
+                app:cornerRadius="@dimen/space_xs"
+                android:textSize="@dimen/text_xl"
+                android:text="@string/delete" />
 
         </LinearLayout>
 
@@ -68,60 +68,60 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="@dimen/xxxl">
+            android:padding="@dimen/space_xxxl">
 
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textSize="@dimen/xxl"
-                android:text="Hello" />
+                android:textSize="@dimen/text_xxl"
+                android:text="@string/word" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/space_xl"
                 android:textStyle="bold"
-                android:textSize="@dimen/xxl"
-                android:text="Meaning" />
+                android:textSize="@dimen/text_xxl"
+                android:text="@string/meaning" />
 
             <TextView
                 android:id="@+id/tvMeaning"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/tx_xl"
-                android:text="Meaning example" />
+                android:textSize="@dimen/text_xl"
+                android:text="@string/meaning" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/xl"
+                android:layout_marginTop="@dimen/space_xl"
                 android:textStyle="bold"
-                android:textSize="@dimen/tx_xxl"
-                android:text="Synonym" />
+                android:textSize="@dimen/text_xxl"
+                android:text="@string/synonyms" />
 
             <TextView
                 android:id="@+id/tvSynonym"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/tx_xl"
-                android:text="Meaning example" />
+                android:textSize="@dimen/text_xl"
+                android:text="@string/synonyms" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/xl"
+                android:layout_marginTop="@dimen/space_xl"
                 android:textStyle="bold"
-                android:textSize="@dimen/tx_xxl"
-                android:text="Details" />
+                android:textSize="@dimen/text_xxl"
+                android:text="@string/details" />
 
             <TextView
                 android:id="@+id/tvDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/tx_xl"
-                android:text="Meaning example .............................................................................................................................." />
+                android:textSize="@dimen/text_xl"
+                android:text="@string/details" />
 
         </LinearLayout>
 

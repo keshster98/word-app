@@ -8,17 +8,17 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 
 abstract class BaseManageViewModel(
-    private val repo: WordRepo = WordRepo.getInstance()
+    val repo: WordRepo = WordRepo.getInstance()
 ) : ViewModel() {
-    //Catch error msg for the snackbar on the fragment
+    // Catch error message for the snack bar on the fragment
     val _error = MutableSharedFlow<String>()
     val error: SharedFlow<String> = _error.asSharedFlow()
 
-    //Default state for the input fields
+    // Default state for the input fields
     val title = MutableStateFlow("")
     val meaning = MutableStateFlow("")
-    val synonyms = MutableStateFlow("")
-    val details = MutableStateFlow("")
+    val synonyms = MutableStateFlow<String?>(null)
+    val details = MutableStateFlow<String?>(null)
 
     protected val _finish = MutableSharedFlow<Unit>()
     val finish = _finish.asSharedFlow()

@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/xs"
-    app:cardCornerRadius="@dimen/m"
-    app:cardElevation="@dimen/xxxs"
+    android:layout_margin="@dimen/space_xs"
+    app:cardCornerRadius="@dimen/space_m"
+    app:cardElevation="@dimen/space_xxxs"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/m">
+        android:padding="@dimen/space_m">
 
         <!--Word-->
 
@@ -35,7 +35,7 @@
             android:id="@+id/tvMeaning"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/xs"
+            android:layout_marginTop="@dimen/space_xs"
             android:text="@string/definition"
             android:maxLines="5"
             android:ellipsize="end"

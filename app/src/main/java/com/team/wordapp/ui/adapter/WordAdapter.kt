@@ -40,5 +40,9 @@ class WordAdapter(
         notifyDataSetChanged()
     }
 
-    class WordViewHolder(val binding: LayoutItemWordBinding): RecyclerView.ViewHolder(binding.root)
+    inner class WordViewHolder(
+        val binding: LayoutItemWordBinding
+    ): RecyclerView.ViewHolder(binding.root) {
+
+    }
 }

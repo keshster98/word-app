@@ -4,9 +4,9 @@ import com.team.wordapp.data.model.Word
 
 class WordRepo private constructor() {
     // To store all the words
-    val items: MutableMap<Int, Word> = mutableMapOf()
+    private val map = mutableMapOf<Int, Word>()
     // To generate product IDs
-    var counter = 0
+    private var counter = 0
 
     // Creates 10 random word cards
     init {
@@ -15,43 +15,44 @@ class WordRepo private constructor() {
 
     // Adds a word to the repo
     fun addWord(word: Word) {
-        // To ensure ID begins with 1
-        counter++
-        items[counter] = word.copy(id = counter)
+        val id = ++counter
+        map[id] = word.copy(id = id)
     }
 
-    // Retrieves all words from the repo
-    fun getAllWords() = items.values.toList()
+    // Retrieves all words
+    fun getAllWords(): List<Word> = map.values.toList()
 
     // Retrieves a specific word from the repo
-    fun getWord(id: Int) = items[id]
+    fun getWordById(id: Int): Word? {
+        return map[id]
+    }
 
     // Updates a specific word from the repo
-    fun updateWord(word: Word) {
-        items[word.id!!] = word
+    fun updateWord(id: Int, word: Word) {
+        if (map.containsKey(id)) {
+            map[id] = word.copy(id = id)
+        }
     }
 
     // Deletes a specific word from the repo
     fun deleteWord(id: Int) {
-        items.remove(id)
+        map.remove(id)
     }
 
     // Random word card generator
     fun generateRandomWords(n: Int) {
         repeat(n) {
-            val word = Word(
+            val id = ++counter
+            map[id] = Word(
                 title = "Title: $it",
                 meaning = "Definition: $it",
             )
-            addWord(word)
         }
     }
 
     // Word repo instance creator
     companion object {
         private var instance: WordRepo? = null
-
-        @Synchronized
         fun getInstance(): WordRepo {
             if (instance == null) {
                 instance = WordRepo()
@@ -60,3 +61,4 @@ class WordRepo private constructor() {
         }
     }
 }
+

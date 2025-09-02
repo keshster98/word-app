@@ -5,69 +5,69 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:background="#44000000"
+        android:background="@color/main_bg"
         tools:context=".fragments.confirm.ConfirmationFragment">
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp"
+            app:cardCornerRadius="@dimen/space_xs"
             android:layout_centerInParent="true">
 
             <LinearLayout
-                android:layout_width="300dp"
-                android:layout_height="220dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:orientation="vertical"
-                android:padding="26dp">
+                android:padding="@dimen/space_xxxl">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/are_you_sure"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/text_xxl"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/you_want_to_delete_this_word"
-                    android:layout_marginTop="8dp"
-                    android:textSize="18sp"
+                    android:layout_marginTop="@dimen/space_xs"
+                    android:textSize="@dimen/text_xl"
                     style="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/action_can_not_be_undone"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/text_xl"
                     style="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="@dimen/space_xxxxl"
                     android:gravity="center">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/mbCancel"
-                        android:layout_width="100dp"
+                        android:layout_width="@dimen/space_xxxxxxxl"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#00B3FE"
-                        app:cornerRadius="8dp"
+                        android:backgroundTint="@color/cs_blue"
+                        app:cornerRadius="@dimen/space_xs"
                         android:text="@string/cancel" />
 
                     <Space
-                        android:layout_width="20dp"
-                        android:layout_height="0dp" />
+                        android:layout_width="@dimen/space_xxl"
+                        android:layout_height="@dimen/space_nil" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/mbDelete"
-                        android:layout_width="100dp"
+                        android:layout_width="@dimen/space_xxxxxxxl"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#CD0714"
-                        app:cornerRadius="8dp"
+                        android:backgroundTint="@color/cs_red"
+                        app:cornerRadius="@dimen/space_xs"
                         android:onClick="@{}"
                         android:text="@string/delete" />
                 </LinearLayout>

@@ -1,6 +1,5 @@
 package com.team.wordapp.ui.manage
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,10 +11,9 @@ import com.google.android.material.snackbar.Snackbar
 import com.team.wordapp.databinding.FragmentBaseManageBinding
 import kotlinx.coroutines.launch
 
-class BaseManageFragment : Fragment() {
-
-    private lateinit var binding: FragmentBaseManageBinding
-    private val viewModel: BaseManageViewModel by viewModels()
+abstract class BaseManageFragment : Fragment() {
+    protected lateinit var binding: FragmentBaseManageBinding
+    protected abstract val viewModel: BaseManageViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,20 +25,23 @@ class BaseManageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //Tell the home fragment or wherever you want to notify that you have made some changes
+
+        // Tell the home fragment or wherever you want to notify that you have made some changes
         lifecycleScope.launch {
             viewModel.finish.collect {
                 setFragmentResult("manage_word", Bundle())
             }
         }
-        //Catch the error and call the snackbar function
+
+        // Catch the error and call the snack bar function
         lifecycleScope.launch {
             viewModel.error.collect {
                 showSnackbar(it)
             }
         }
     }
-    //Function to show the snackbar and put the error msg in it
+
+    // Function to show the snack bar and put the error message in it
     private fun showSnackbar(msg: String) {
         Snackbar.make(binding.root, msg , Snackbar.LENGTH_LONG).show()
     }

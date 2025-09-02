@@ -7,7 +7,8 @@ data class Word (
     val id: Int? = null,
     val title: String,
     val meaning: String,
-    val synonym: String? = null,
+    val synonyms: String? = null,
     val details: String? = null,
-    val createdAt: ZonedDateTime = ZonedDateTime.now(ZoneId.of("Asia/Kuala_Lumpur"))
+    val createdAt: ZonedDateTime = ZonedDateTime.now(ZoneId.of("Asia/Kuala_Lumpur")),
+    val isCompleted: Boolean = false
 )
