@@ -27,7 +27,7 @@ class WordDetailsFragment(
         binding.run {
             tvTitle.text = word.title
             tvMeaning.text = word.meaning
-            tvSynonym.text = word.synonym
+            tvSynonyms.text = word.synonyms
             tvDetails.text = word.details
 
             mbDone.setOnClickListener {

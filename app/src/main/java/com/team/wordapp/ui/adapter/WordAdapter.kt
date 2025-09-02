@@ -23,19 +23,12 @@ class WordAdapter(
         position: Int
     ) {
         val word = words[position]
-        holder.binding.run {
-            tvTitle.text = word.title
-            tvMeaning.text = word.meaning
-
-            llWord.setOnClickListener {
-                onClick(word)
-            }
-        }
+        holder.bind(word)
     }
 
     override fun getItemCount() = words.size
 
-    fun setNotes(words: List<Word>) {
+    fun setWords(words: List<Word>) {
         this.words = words
         notifyDataSetChanged()
     }
@@ -43,6 +36,14 @@ class WordAdapter(
     inner class WordViewHolder(
         val binding: LayoutItemWordBinding
     ): RecyclerView.ViewHolder(binding.root) {
-
+        fun bind(item: Word) {
+            binding.run {
+                tvTitle.text = item.title
+                tvMeaning.text = item.meaning
+                llWord.setOnClickListener {
+                    onClick(item)
+                }
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.team.wordapp.databinding.FragmentBaseManageBinding
 import kotlinx.coroutines.launch
@@ -30,6 +31,7 @@ abstract class BaseManageFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.finish.collect {
                 setFragmentResult("manage_word", Bundle())
+                findNavController().popBackStack()
             }
         }
 
