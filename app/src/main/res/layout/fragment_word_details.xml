@@ -102,7 +102,7 @@
                 android:text="@string/synonyms" />
 
             <TextView
-                android:id="@+id/tvSynonym"
+                android:id="@+id/tvSynonyms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_xl"
