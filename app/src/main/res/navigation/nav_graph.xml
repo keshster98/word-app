@@ -9,5 +9,24 @@
         android:id="@+id/homeFragment"
         android:name="com.team.wordapp.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_addWordFragment2"
+            app:destination="@id/addWordFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/addWordFragment2"
+        android:name="com.team.wordapp.ui.manage.AddWordFragment"
+        android:label="AddWordFragment" >
+        <action
+            android:id="@+id/action_addWordFragment2_to_editWordFragment2"
+            app:destination="@id/editWordFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/editWordFragment2"
+        android:name="com.team.wordapp.ui.manage.EditWordFragment"
+        android:label="EditWordFragment">
+        <argument android:name="wordId" app:argType="integer"/>
+    </fragment>
+
 </navigation>

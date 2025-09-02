@@ -4,6 +4,7 @@
     <color name="main_bg">#E9ECF5</color>
     <color name="cs_blue">#00B3FE</color>
     <color name="cs_red">#CD0714</color>
+    <color name="cs_grey">#44000000</color>
 
     <!--Colors-->
     <color name="black">#FF000000</color>
