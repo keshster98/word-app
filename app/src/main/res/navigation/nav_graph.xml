@@ -24,8 +24,8 @@
             android:id="@+id/action_wordDetailsFragment_to_editWordFragment"
             app:destination="@id/editWordFragment" />
         <argument
-            android:name="wordId"
-            app:argType="integer"
+            android:name="word"
+            app:argType="com.team.wordapp.data.model.Word"
             app:nullable="false" />
     </fragment>
     <fragment

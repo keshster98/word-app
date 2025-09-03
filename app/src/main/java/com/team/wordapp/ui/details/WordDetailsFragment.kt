@@ -2,17 +2,23 @@ package com.team.wordapp.ui.details
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
 import com.team.wordapp.data.model.Word
 import com.team.wordapp.databinding.FragmentWordDetailsBinding
+import com.team.wordapp.ui.confirmation.ConfirmationViewModel
+import kotlinx.coroutines.launch
 
-class WordDetailsFragment(
-    private val word: Word
-) : Fragment() {
+class WordDetailsFragment: Fragment() {
     private lateinit var binding: FragmentWordDetailsBinding
+    private val viewModel: WordDetailsViewModel by viewModels()
+    private val args: WordDetailsFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,22 +30,24 @@ class WordDetailsFragment(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.run {
-            tvTitle.text = word.title
-            tvMeaning.text = word.meaning
-            tvSynonyms.text = word.synonyms
-            tvDetails.text = word.details
+        lifecycleScope.launch {
+            binding.run {
+                tvTitle.text = args.word.title
+                tvMeaning.text = args.word.meaning
+                tvSynonyms.text = args.word.synonyms
+                tvDetails.text = args.word.details
 
-            mbDone.setOnClickListener {
-                //Navigate back to home
-            }
+                mbDone.setOnClickListener {
 
-            mbUpdate.setOnClickListener {
-                //Navigate to update fragment
-            }
+                }
 
-            mbDelete.setOnClickListener {
-                //Navigate to confirmation fragment
+                mbUpdate.setOnClickListener {
+                    //Navigate to update fragment
+                }
+
+                mbDelete.setOnClickListener {
+                    //Navigate to confirmation fragment
+                }
             }
         }
     }
