@@ -9,9 +9,9 @@ class WordRepo private constructor() {
     private var counter = 0
 
     // Creates 10 random word cards
-    init {
-        generateRandomWords(10)
-    }
+//    init {
+//        generateRandomWords(10)
+//    }
 
     // Adds a word to the repo
     fun addWord(word: Word) {
@@ -47,6 +47,13 @@ class WordRepo private constructor() {
                 title = "Title: $it",
                 meaning = "Definition: $it",
             )
+        }
+    }
+
+    // Toggle isCompleted Boolean
+    fun completed(word: Word) {
+        if (map.containsKey(word.id)) {
+            map.replace(word.id!!, word.copy(isCompleted = true))
         }
     }
 

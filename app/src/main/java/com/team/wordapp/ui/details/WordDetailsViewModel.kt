@@ -7,7 +7,7 @@ import com.team.wordapp.data.repo.WordRepo
 class WordDetailsViewModel: ViewModel() {
     private val repo = WordRepo.getInstance()
 
-    fun getWord(id: Int): Word {
-        return repo.getWordById(id)!!
+    fun done(word: Word) {
+        repo.completed(word)
     }
 }

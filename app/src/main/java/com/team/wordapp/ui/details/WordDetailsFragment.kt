@@ -2,16 +2,14 @@ package com.team.wordapp.ui.details
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.team.wordapp.data.model.Word
 import com.team.wordapp.databinding.FragmentWordDetailsBinding
-import com.team.wordapp.ui.confirmation.ConfirmationViewModel
 import kotlinx.coroutines.launch
 
 class WordDetailsFragment: Fragment() {
@@ -31,22 +29,30 @@ class WordDetailsFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         lifecycleScope.launch {
+
+            val word = args.word
+
             binding.run {
-                tvTitle.text = args.word.title
-                tvMeaning.text = args.word.meaning
-                tvSynonyms.text = args.word.synonyms
-                tvDetails.text = args.word.details
+                tvTitle.text = word.title
+                tvMeaning.text = word.meaning
+                tvSynonyms.text = word.synonyms
+                tvDetails.text = word.details
 
                 mbDone.setOnClickListener {
-
+                    viewModel.done(word)
+                    findNavController().popBackStack()
                 }
 
                 mbUpdate.setOnClickListener {
-                    //Navigate to update fragment
+                    val action = WordDetailsFragmentDirections.
+                    actionWordDetailsFragmentToEditWordFragment(word.id!!)
+                    findNavController().navigate(action)
                 }
 
                 mbDelete.setOnClickListener {
-                    //Navigate to confirmation fragment
+                    val action = WordDetailsFragmentDirections.
+                    actionWordDetailsFragmentToConfirmationFragment(word.id!!)
+                    findNavController().navigate(action)
                 }
             }
         }
