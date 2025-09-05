@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_homeFragment_to_addWordFragment"
             app:destination="@id/addWordFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_sortFragment"
+            app:destination="@id/sortFragment" />
     </fragment>
     <fragment
         android:id="@+id/wordDetailsFragment"
@@ -54,7 +57,7 @@
             android:id="@+id/action_addWordFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
-    <fragment
+    <dialog
         android:id="@+id/confirmationFragment"
         android:name="com.team.wordapp.ui.confirmation.ConfirmationFragment"
         android:label="ConfirmationFragment"
@@ -62,5 +65,10 @@
         <argument
             android:name="wordId"
             app:argType="integer" />
-    </fragment>
+    </dialog>
+    <dialog
+        android:id="@+id/sortFragment"
+        android:name="com.team.wordapp.ui.sort.SortFragment"
+        android:label="SortFragment"
+        tools:layout="@layout/fragment_sort"/>
 </navigation>
