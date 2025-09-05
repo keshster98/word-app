@@ -1,11 +1,13 @@
 package com.team.wordapp.ui.home
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -16,7 +18,7 @@ import kotlinx.coroutines.launch
 
 class HomeFragment: Fragment() {
 
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by activityViewModels()
     private lateinit var binding: FragmentHomeBinding
     private lateinit var adapter: WordAdapter
 
@@ -34,6 +36,20 @@ class HomeFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupAdapter()
 
+        binding.etSearch.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+                viewModel.getWords(search = s.toString())
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
+
+        binding.ivSort.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToSortFragment()
+            findNavController().navigate(action)
+        }
+
         lifecycleScope.launch {
             viewModel.words.collect {
                 adapter.setWords(it)
@@ -50,7 +66,7 @@ class HomeFragment: Fragment() {
 
     fun setupAdapter() {
         adapter = WordAdapter(emptyList()) {
-            val action = HomeFragmentDirections.actionHomeFragmentToWordDetailsFragment(it.id!!)
+            val action = HomeFragmentDirections.actionHomeFragmentToWordDetailsFragment(it)
             findNavController().navigate(action)
         }
         binding.rvWords.layoutManager = LinearLayoutManager(requireContext())

@@ -16,6 +16,7 @@
     <dimen name="space_xxxxxl">64dp</dimen>
     <dimen name="space_xxxxxxl">80dp</dimen>
     <dimen name="space_xxxxxxxl">100dp</dimen>
+    <dimen name="space_xxxxxxxxl">300dp</dimen>
 
     <!--Text size-->
     <dimen name="text_nil">0sp</dimen>
