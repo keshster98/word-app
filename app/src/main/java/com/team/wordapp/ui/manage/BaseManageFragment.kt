@@ -17,6 +17,10 @@ abstract class BaseManageFragment : Fragment() {
     protected lateinit var binding: FragmentBaseManageBinding
     protected abstract val viewModel: BaseManageViewModel
 
+    protected abstract fun getManageWordPageTitle(): String
+
+    protected abstract fun getManageWordButtonLabel(): String
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,6 +31,9 @@ abstract class BaseManageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.tvHeader.text = getManageWordPageTitle()
+        binding.mbSubmit.text = getManageWordButtonLabel()
 
         // Tell the home fragment or wherever you want to notify that you have made some changes
         lifecycleScope.launch {

@@ -8,6 +8,11 @@ import kotlin.getValue
 
 class EditWordFragment: BaseManageFragment() {
     override val viewModel: EditWordViewModel by viewModels()
+
+    override fun getManageWordPageTitle() = "Update Word"
+
+    override fun getManageWordButtonLabel() = "Update"
+
     private val args: EditWordFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
