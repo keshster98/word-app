@@ -7,20 +7,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResultListener
-import androidx.lifecycle.lifecycleScope
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.tabs.TabLayoutMediator
 import com.team.wordapp.databinding.FragmentHomeBinding
-import com.team.wordapp.ui.adapter.WordAdapter
-import kotlinx.coroutines.launch
+import com.team.wordapp.ui.home.nestedHome.Home1Fragment
+import com.team.wordapp.ui.home.nestedHome.Home2Fragment
+import com.team.wordapp.ui.home.nestedHome.TabsAdapter
 
 class HomeFragment: Fragment() {
 
-    private val viewModel: HomeViewModel by activityViewModels()
+    private val viewModel: HomeViewModel by viewModels()
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var adapter: WordAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,11 +33,11 @@ class HomeFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupAdapter()
 
         binding.etSearch.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
-                viewModel.getWords(search = s.toString())
+                viewModel.searchState = s.toString()
+                viewModel.refresh()
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -46,14 +45,11 @@ class HomeFragment: Fragment() {
         })
 
         binding.ivSort.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToSortFragment()
+            val action = HomeFragmentDirections.actionHomeFragmentToSortFragment(
+                viewModel.sortState1,
+                viewModel.sortState2
+            )
             findNavController().navigate(action)
-        }
-
-        lifecycleScope.launch {
-            viewModel.words.collect {
-                adapter.setWords(it)
-            }
         }
 
         binding.fabAdd.setOnClickListener {
@@ -61,15 +57,27 @@ class HomeFragment: Fragment() {
             findNavController().navigate(action)
         }
 
-        setFragmentResultListener("manage_word") {_, _ -> viewModel.getWords()}
-    }
+        val adapter = TabsAdapter(
+            fragments = listOf(Home1Fragment(), Home2Fragment()),
+            fragment = this
+        )
 
-    fun setupAdapter() {
-        adapter = WordAdapter(emptyList()) {
-            val action = HomeFragmentDirections.actionHomeFragmentToWordDetailsFragment(it)
-            findNavController().navigate(action)
+        binding.vpTabs.adapter = adapter
+
+        TabLayoutMediator(binding.tlTabs, binding.vpTabs) { tab, position ->
+            when(position) {
+                0 -> tab.text = "First Fragment"
+                else -> tab.text = "Second Fragment"
+            }
+        }.attach()
+
+        setFragmentResultListener("manage_word") {_, _ -> viewModel.refresh()}
+        setFragmentResultListener("manage_sort") { _, bundle ->
+            viewModel.run {
+                sortState1 = bundle.getInt("sort1")
+                sortState2 = bundle.getInt("sort2")
+                refresh()
+            }
         }
-        binding.rvWords.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvWords.adapter = adapter
     }
 }

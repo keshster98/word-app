@@ -4,17 +4,16 @@ import androidx.lifecycle.ViewModel
 import com.team.wordapp.data.model.Word
 import com.team.wordapp.data.repo.WordRepo
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 
 class HomeViewModel(
-    private val repo: WordRepo = WordRepo.getInstance()
+    protected val repo: WordRepo = WordRepo.getInstance()
 ): ViewModel() {
 
     var searchState = ""
     var sortState1 = 0
     var sortState2 = 0
-    private val _words = MutableStateFlow<List<Word>>(emptyList())
-    val words = _words.asStateFlow()
+    val notCompletedWords = MutableStateFlow<List<Word>>(emptyList())
+    val completedWords = MutableStateFlow<List<Word>>(emptyList())
 
     fun List<Word>.searchSort(search: String, sort1: Int, sort2: Int): List<Word> {
         var list = this
@@ -34,10 +33,19 @@ class HomeViewModel(
     }
 
     init {
-        getWords(searchState, sortState1, sortState2)
+        refresh()
     }
 
-    fun getWords(search: String = searchState, sort1: Int = sortState1, sort2: Int = sortState2) {
-        _words.value = repo.getAllWords().searchSort(search, sort1, sort2)
+    fun refresh() {
+        getNotCompletedWords()
+        getCompletedWords()
+    }
+
+    fun getNotCompletedWords() {
+        notCompletedWords.value = repo.getAllWords().filter { !it.isCompleted }.searchSort(searchState, sortState1, sortState2)
+    }
+
+    fun getCompletedWords() {
+        completedWords.value = repo.getAllWords().filter { it.isCompleted }.searchSort(searchState, sortState1, sortState2)
     }
 }

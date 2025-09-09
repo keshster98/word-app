@@ -1,6 +1,5 @@
 package com.team.wordapp.ui.details
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,7 +13,6 @@ import kotlinx.coroutines.launch
 
 class WordDetailsFragment: Fragment() {
     private lateinit var binding: FragmentWordDetailsBinding
-    private val viewModel: WordDetailsViewModel by viewModels()
     private val args: WordDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -39,8 +37,9 @@ class WordDetailsFragment: Fragment() {
                 tvDetails.text = word.details
 
                 mbDone.setOnClickListener {
-                    viewModel.done(word)
-                    findNavController().popBackStack()
+                    val action = WordDetailsFragmentDirections.
+                    actionWordDetailsToConfirmationDone(word)
+                    findNavController().navigate(action)
                 }
 
                 mbUpdate.setOnClickListener {

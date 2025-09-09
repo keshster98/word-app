@@ -1,4 +1,4 @@
-package com.team.wordapp.ui.confirmation
+package com.team.wordapp.ui.confirmationDelete
 
 import androidx.lifecycle.ViewModel
 import com.team.wordapp.data.repo.WordRepo

@@ -1,4 +1,4 @@
-package com.team.wordapp.ui.confirmation
+package com.team.wordapp.ui.confirmationDelete
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -28,7 +28,7 @@ class ConfirmationFragment: DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.mbCancel.setOnClickListener {
-            findNavController().popBackStack()
+            dismiss()
         }
 
         binding.mbDelete.setOnClickListener {

@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_wordDetailsFragment_to_confirmationFragment"
             app:destination="@id/confirmationFragment" />
+        <action
+            android:id="@+id/action_wordDetails_to_confirmationDone"
+            app:destination="@id/confirmationDoneFragment" />
     </fragment>
     <fragment
         android:id="@+id/editWordFragment"
@@ -71,7 +74,7 @@
     </fragment>
     <dialog
         android:id="@+id/confirmationFragment"
-        android:name="com.team.wordapp.ui.confirmation.ConfirmationFragment"
+        android:name="com.team.wordapp.ui.confirmationDelete.ConfirmationFragment"
         android:label="ConfirmationFragment"
         tools:layout="@layout/fragment_confirmation">
         <argument
@@ -82,5 +85,23 @@
         android:id="@+id/sortFragment"
         android:name="com.team.wordapp.ui.sort.SortFragment"
         android:label="SortFragment"
-        tools:layout="@layout/fragment_sort"/>
+        tools:layout="@layout/fragment_sort">
+        <argument
+            android:name="sort1"
+            app:argType="integer" />
+        <argument
+            android:name="sort2"
+            app:argType="integer" />
+    </dialog>
+    <dialog
+        android:id="@+id/confirmationDoneFragment"
+        android:name="com.team.wordapp.ui.comfirmationDone.ConfirmationDoneFragment"
+        android:label="ConfirmationDoneFragment"
+        tools:layout="@layout/fragment_confirmation_done">
+        <argument
+            android:name="word"
+            app:argType="com.team.wordapp.data.model.Word"
+            app:nullable="false" />
+    </dialog>
+
 </navigation>

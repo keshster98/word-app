@@ -49,14 +49,24 @@
 
     </androidx.cardview.widget.CardView>
 
-    <!--Recycler View -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvWords"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpTabs"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="@dimen/space_xxxxxxxl"
+        android:layout_height="@dimen/space_nil"
         android:layout_below="@id/cvSearch"
-        android:clipToPadding="false" />
+        android:layout_above="@id/tlTabs" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tlTabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:tabSelectedTextColor="@color/cs_blue"
+        app:tabTextColor="@color/black"
+        app:tabIndicatorHeight="@dimen/space_nil" />
+<!--    app:tabBackground="@drawable/tab_bg"-->
+<!--    android:stateListAnimator="@animator/tab_scale_selector"-->
+<!--    app:tabIconTint="@color/tab_icon_tint"-->
 
     <!--Add new button -->
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

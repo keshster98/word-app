@@ -45,24 +45,24 @@
                     android:gravity="center">
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/mbCancel"
+                        android:id="@+id/mbYes"
                         android:layout_width="@dimen/space_xxxxxxxl"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/cs_blue"
                         app:cornerRadius="@dimen/space_xs"
-                        android:text="@string/cancel" />
+                        android:text="@string/yes" />
 
                     <Space
                         android:layout_width="@dimen/space_xxl"
                         android:layout_height="@dimen/space_nil" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/mbDelete"
+                        android:id="@+id/mbNo"
                         android:layout_width="@dimen/space_xxxxxxxl"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/cs_red"
+                        android:backgroundTint="@color/cs_blue"
                         app:cornerRadius="@dimen/space_xs"
-                        android:text="@string/delete" />
+                        android:text="@string/no" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>

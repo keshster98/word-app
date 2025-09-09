@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.navArgs
 import com.team.wordapp.R
 import com.team.wordapp.databinding.FragmentSortBinding
-import com.team.wordapp.ui.home.HomeViewModel
 
 class SortFragment : DialogFragment() {
-    private val viewModel: HomeViewModel by activityViewModels()
     private lateinit var binding: FragmentSortBinding
+    private val args: SortFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,8 +26,8 @@ class SortFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var selectedOrder = viewModel.sortState1
-        var selectedBy = viewModel.sortState2
+        var selectedOrder = args.sort1
+        var selectedBy = args.sort2
 
         fun radioCheck() {
             binding.run {
@@ -61,9 +61,8 @@ class SortFragment : DialogFragment() {
                 }
             }
             mbDone.setOnClickListener {
-                viewModel.sortState1 = selectedOrder
-                viewModel.sortState2 = selectedBy
-                setFragmentResult("manage_word", Bundle())
+                val resultBundle = bundleOf("sort1" to selectedOrder, "sort2" to selectedBy)
+                setFragmentResult("manage_sort", resultBundle)
                 dismiss()
             }
         }
