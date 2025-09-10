@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.team.wordapp.databinding.FragmentHome1Binding
+import com.team.wordapp.databinding.FragmentHome2Binding
 import com.team.wordapp.ui.adapter.WordAdapter
 import com.team.wordapp.ui.home.HomeFragmentDirections
 import com.team.wordapp.ui.home.HomeViewModel
@@ -20,13 +20,13 @@ class Home2Fragment : Fragment() {
         ownerProducer = { requireParentFragment() }
     )
     private lateinit var adapter: WordAdapter
-    private lateinit var binding: FragmentHome1Binding
+    private lateinit var binding: FragmentHome2Binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHome1Binding.inflate(layoutInflater, container, false)
+        binding = FragmentHome2Binding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -46,7 +46,7 @@ class Home2Fragment : Fragment() {
             val action = HomeFragmentDirections.actionHomeFragmentToWordDetailsFragment(it)
             findNavController().navigate(action)
         }
-        binding.rvWords1.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvWords1.adapter = adapter
+        binding.rvWords2.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvWords2.adapter = adapter
     }
 }

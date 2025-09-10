@@ -12,8 +12,8 @@
         <action
             android:id="@+id/action_homeFragment_to_wordDetailsFragment"
             app:enterAnim="@anim/from_down"
-            app:exitAnim="@anim/to_down"
-            app:popEnterAnim="@anim/from_down"
+            app:exitAnim="@anim/to_up"
+            app:popEnterAnim="@anim/from_up"
             app:popExitAnim="@anim/to_down"
             app:destination="@id/wordDetailsFragment" />
         <action
@@ -35,8 +35,8 @@
         <action
             android:id="@+id/action_wordDetailsFragment_to_editWordFragment"
             app:enterAnim="@anim/from_down"
-            app:exitAnim="@anim/to_down"
-            app:popEnterAnim="@anim/from_down"
+            app:exitAnim="@anim/to_up"
+            app:popEnterAnim="@anim/from_up"
             app:popExitAnim="@anim/to_down"
             app:destination="@id/editWordFragment" />
         <argument
