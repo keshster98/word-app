@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.team.wordapp.ui.manage.BaseManageViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.manage.BaseManageFragment">
+
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_word"
+            android:textSize="@dimen/text_xxl"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/space_xl" />
+
+        <View
+            android:id="@+id/vBorder"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_xxxxs"
+            android:layout_below="@id/tvHeader"
+            android:background="@color/g_border"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@id/vBorder"
+            android:padding="@dimen/space_xxl">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title"
+                android:textSize="@dimen/text_xxl"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/space_xl"
+                android:layout_marginBottom="@dimen/space_s" />
+
+            <EditText
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/title"
+                android:text="@={viewModel.title}"
+                android:maxHeight="@dimen/space_xxxxxl"
+                android:padding="@dimen/space_s" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/meaning"
+                android:textSize="@dimen/text_xxl"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/space_xxxxl"
+                android:layout_marginBottom="@dimen/space_s" />
+
+            <EditText
+                android:id="@+id/etMeaning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/meaning"
+                android:text="@={viewModel.meaning}"
+                android:maxHeight="@dimen/space_xxxxxl"
+                android:padding="@dimen/space_s" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/synonyms"
+                android:textSize="@dimen/text_xxl"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/space_xxxxl"
+                android:layout_marginBottom="@dimen/space_s" />
+
+            <EditText
+                android:id="@+id/etSynonyms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/synonyms"
+                android:text="@={viewModel.synonyms}"
+                android:maxHeight="@dimen/space_xxxxxl"
+                android:padding="@dimen/space_s" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/details"
+                android:textSize="@dimen/text_xxl"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/space_xxxxl"
+                android:layout_marginBottom="@dimen/space_s" />
+
+            <EditText
+                android:id="@+id/etDetails"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_xxxxxxl"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/details"
+                android:text="@={viewModel.details}"
+                android:gravity="top"
+                android:maxHeight="@dimen/space_xxxxxxl"
+                android:padding="@dimen/space_s" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add"
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/space_xl"
+            app:cornerRadius="@dimen/space_xl"
+            android:textSize="@dimen/text_xl"
+            android:backgroundTint="@color/cs_blue"
+            android:onClick="@{() -> viewModel.submit()}"
+            android:layout_margin="@dimen/space_xxxl" />
+    </RelativeLayout>
+</layout>

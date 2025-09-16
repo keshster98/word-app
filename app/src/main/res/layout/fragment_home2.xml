@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.nestedHome.Home2Fragment">
+
+    <!--Recycler View -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvWords2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/space_xxxxxxxl"
+        android:clipToPadding="false" />
+
+    <LinearLayout
+        android:id="@+id/empty_view2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/empty_icon"
+            android:layout_width="@dimen/space_xxxxxxl"
+            android:layout_height="@dimen/space_xxxxxxl"
+            android:contentDescription="@string/you_have_no_completed_words_yet"
+            android:src="@drawable/ic_contract_delete_24" />
+
+        <TextView
+            android:id="@+id/empty_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_m"
+            android:text="@string/you_have_no_completed_words_yet"
+            android:textSize="@dimen/text_l"
+            android:textColor="@android:color/darker_gray"/>
+    </LinearLayout>
+
+</FrameLayout>

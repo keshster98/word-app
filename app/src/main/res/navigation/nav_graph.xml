@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.team.wordapp.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_wordDetailsFragment"
+            app:enterAnim="@anim/from_down"
+            app:exitAnim="@anim/to_up"
+            app:popEnterAnim="@anim/from_up"
+            app:popExitAnim="@anim/to_down"
+            app:destination="@id/wordDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addWordFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:destination="@id/addWordFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_sortFragment"
+            app:destination="@id/sortFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordDetailsFragment"
+        android:name="com.team.wordapp.ui.details.WordDetailsFragment"
+        android:label="WordDetailsFragment"
+        tools:layout="@layout/fragment_word_details">
+        <action
+            android:id="@+id/action_wordDetailsFragment_to_editWordFragment"
+            app:enterAnim="@anim/from_down"
+            app:exitAnim="@anim/to_up"
+            app:popEnterAnim="@anim/from_up"
+            app:popExitAnim="@anim/to_down"
+            app:destination="@id/editWordFragment" />
+        <argument
+            android:name="word"
+            app:argType="com.team.wordapp.data.model.Word"
+            app:nullable="false" />
+        <action
+            android:id="@+id/action_wordDetailsFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment" />
+        <action
+            android:id="@+id/action_wordDetails_to_confirmationDone"
+            app:destination="@id/confirmationDoneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editWordFragment"
+        android:name="com.team.wordapp.ui.manage.EditWordFragment"
+        android:label="EditWordFragment"
+        tools:layout="@layout/fragment_base_manage">
+        <argument
+            android:name="wordId"
+            app:argType="integer"
+            app:nullable="false" />
+        <action
+            android:id="@+id/action_editWordFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addWordFragment"
+        android:name="com.team.wordapp.ui.manage.AddWordFragment"
+        android:label="AddWordFragment"
+        tools:layout="@layout/fragment_base_manage">
+        <action
+            android:id="@+id/action_addWordFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/confirmationFragment"
+        android:name="com.team.wordapp.ui.confirmationDelete.ConfirmationFragment"
+        android:label="ConfirmationFragment"
+        tools:layout="@layout/fragment_confirmation">
+        <argument
+            android:name="wordId"
+            app:argType="integer" />
+    </dialog>
+    <dialog
+        android:id="@+id/sortFragment"
+        android:name="com.team.wordapp.ui.sort.SortFragment"
+        android:label="SortFragment"
+        tools:layout="@layout/fragment_sort">
+        <argument
+            android:name="sort1"
+            app:argType="integer" />
+        <argument
+            android:name="sort2"
+            app:argType="integer" />
+    </dialog>
+    <dialog
+        android:id="@+id/confirmationDoneFragment"
+        android:name="com.team.wordapp.ui.comfirmationDone.ConfirmationDoneFragment"
+        android:label="ConfirmationDoneFragment"
+        tools:layout="@layout/fragment_confirmation_done">
+        <argument
+            android:name="word"
+            app:argType="com.team.wordapp.data.model.Word"
+            app:nullable="false" />
+    </dialog>
+
+</navigation>
