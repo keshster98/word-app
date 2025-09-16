@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.navArgs
 import kotlin.getValue
+import com.team.wordapp.R
 
 class EditWordFragment: BaseManageFragment() {
     override val viewModel: EditWordViewModel by viewModels()
 
-    override fun getManageWordPageTitle() = "Update Word"
+    override fun getManageWordPageTitle() = getString(R.string.update_word)
 
-    override fun getManageWordButtonLabel() = "Update"
+    override fun getManageWordButtonLabel() = getString(R.string.update)
 
     private val args: EditWordFragmentArgs by navArgs()
 

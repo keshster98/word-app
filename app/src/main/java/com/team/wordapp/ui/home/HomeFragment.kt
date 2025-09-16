@@ -15,6 +15,8 @@ import com.team.wordapp.databinding.FragmentHomeBinding
 import com.team.wordapp.ui.home.nestedHome.Home1Fragment
 import com.team.wordapp.ui.home.nestedHome.Home2Fragment
 import com.team.wordapp.ui.home.nestedHome.TabsAdapter
+import com.team.wordapp.R
+
 
 class HomeFragment: Fragment() {
 
@@ -66,8 +68,8 @@ class HomeFragment: Fragment() {
 
         TabLayoutMediator(binding.tlTabs, binding.vpTabs) { tab, position ->
             when(position) {
-                0 -> tab.text = "New Word"
-                else -> tab.text = "Completed Word"
+                0 -> tab.text = getString(R.string.new_word)
+                else -> tab.text = getString(R.string.completed_word)
             }
         }.attach()
 

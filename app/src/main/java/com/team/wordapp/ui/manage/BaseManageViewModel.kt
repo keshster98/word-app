@@ -24,6 +24,7 @@ abstract class BaseManageViewModel(
     val finish = _finish.asSharedFlow()
     abstract fun submit()
 
+    // Could not find a way to use getString and R for the error strings
     protected suspend fun validateInputs(): Boolean {
         val titleText = title.value.trim()
         val meaningText = meaning.value.trim()

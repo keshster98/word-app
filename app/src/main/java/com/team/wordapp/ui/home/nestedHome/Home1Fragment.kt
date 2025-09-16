@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.team.wordapp.R
 import com.team.wordapp.databinding.FragmentHome1Binding
 import com.team.wordapp.ui.adapter.WordAdapter
 import com.team.wordapp.ui.home.HomeFragmentDirections

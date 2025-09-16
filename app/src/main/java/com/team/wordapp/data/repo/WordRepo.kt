@@ -8,11 +8,6 @@ class WordRepo private constructor() {
     // To generate product IDs
     private var counter = 0
 
-    // Creates 10 random word cards
-//    init {
-//        generateRandomWords(10)
-//    }
-
     // Adds a word to the repo
     fun addWord(word: Word) {
         val id = ++counter
@@ -37,17 +32,6 @@ class WordRepo private constructor() {
     // Deletes a specific word from the repo
     fun deleteWord(id: Int) {
         map.remove(id)
-    }
-
-    // Random word card generator
-    fun generateRandomWords(n: Int) {
-        repeat(n) {
-            val id = ++counter
-            map[id] = Word(
-                title = "Title: $it",
-                meaning = "Definition: $it",
-            )
-        }
     }
 
     // Toggle isCompleted Boolean
