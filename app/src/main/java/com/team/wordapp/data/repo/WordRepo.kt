@@ -5,7 +5,7 @@ import com.team.wordapp.data.model.Word
 class WordRepo private constructor() {
     // To store all the words
     private val map = mutableMapOf<Int, Word>()
-    // To generate product IDs
+    // To generate word IDs
     private var counter = 0
 
     // Adds a word to the repo
