@@ -16,15 +16,15 @@
             android:id="@+id/tvHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/placeholder"
-            android:textSize="@dimen/tx_xxl"
+            android:text="@string/add_word"
+            android:textSize="@dimen/text_xxl"
             android:textStyle="bold"
-            android:layout_margin="@dimen/xl" />
+            android:layout_margin="@dimen/space_xl" />
 
         <View
             android:id="@+id/vBorder"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="@dimen/space_xxxxs"
             android:layout_below="@id/tvHeader"
             android:background="@color/g_border"/>
 
@@ -33,16 +33,16 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_below="@id/vBorder"
-            android:padding="@dimen/xxl">
+            android:padding="@dimen/space_xxl">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/title"
-                android:textSize="@dimen/tx_xxl"
+                android:textSize="@dimen/text_xxl"
                 android:textStyle="bold"
-                android:layout_marginTop="@dimen/xl"
-                android:layout_marginBottom="@dimen/s" />
+                android:layout_marginTop="@dimen/space_xl"
+                android:layout_marginBottom="@dimen/space_s" />
 
             <EditText
                 android:id="@+id/etTitle"
@@ -51,17 +51,17 @@
                 android:background="@drawable/edit_text_bg"
                 android:hint="@string/title"
                 android:text="@={viewModel.title}"
-                android:maxHeight="@dimen/xxxxxl"
-                android:padding="@dimen/s" />
+                android:maxHeight="@dimen/space_xxxxxl"
+                android:padding="@dimen/space_s" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/meaning"
-                android:textSize="@dimen/tx_xxl"
+                android:textSize="@dimen/text_xxl"
                 android:textStyle="bold"
-                android:layout_marginTop="@dimen/xxxxl"
-                android:layout_marginBottom="@dimen/s" />
+                android:layout_marginTop="@dimen/space_xxxxl"
+                android:layout_marginBottom="@dimen/space_s" />
 
             <EditText
                 android:id="@+id/etMeaning"
@@ -70,17 +70,17 @@
                 android:background="@drawable/edit_text_bg"
                 android:hint="@string/meaning"
                 android:text="@={viewModel.meaning}"
-                android:maxHeight="@dimen/xxxxxl"
-                android:padding="@dimen/s" />
+                android:maxHeight="@dimen/space_xxxxxl"
+                android:padding="@dimen/space_s" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/synonyms"
-                android:textSize="@dimen/tx_xxl"
+                android:textSize="@dimen/text_xxl"
                 android:textStyle="bold"
-                android:layout_marginTop="@dimen/xxxxl"
-                android:layout_marginBottom="@dimen/s" />
+                android:layout_marginTop="@dimen/space_xxxxl"
+                android:layout_marginBottom="@dimen/space_s" />
 
             <EditText
                 android:id="@+id/etSynonyms"
@@ -89,40 +89,41 @@
                 android:background="@drawable/edit_text_bg"
                 android:hint="@string/synonyms"
                 android:text="@={viewModel.synonyms}"
-                android:maxHeight="@dimen/xxxxxl"
-                android:padding="@dimen/s" />
+                android:maxHeight="@dimen/space_xxxxxl"
+                android:padding="@dimen/space_s" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/details"
-                android:textSize="@dimen/tx_xxl"
+                android:textSize="@dimen/text_xxl"
                 android:textStyle="bold"
-                android:layout_marginTop="@dimen/xxxxl"
-                android:layout_marginBottom="@dimen/s" />
+                android:layout_marginTop="@dimen/space_xxxxl"
+                android:layout_marginBottom="@dimen/space_s" />
 
             <EditText
                 android:id="@+id/etDetails"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/xxxxxxl"
+                android:layout_height="@dimen/space_xxxxxxl"
                 android:background="@drawable/edit_text_bg"
-                android:hint="@string/details_with_dots"
+                android:hint="@string/details"
                 android:text="@={viewModel.details}"
                 android:gravity="top"
-                android:maxHeight="@dimen/xxxxxxl"
-                android:padding="@dimen/s" />
+                android:maxHeight="@dimen/space_xxxxxxl"
+                android:padding="@dimen/space_s" />
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/mbSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/placeholder"
+            android:text="@string/add"
             android:layout_alignParentBottom="true"
-            android:padding="@dimen/xl"
-            app:cornerRadius="@dimen/xl"
-            android:textSize="@dimen/tx_xl"
+            android:padding="@dimen/space_xl"
+            app:cornerRadius="@dimen/space_xl"
+            android:textSize="@dimen/text_xl"
             android:backgroundTint="@color/cs_blue"
-            android:layout_margin="@dimen/xxxl" />
+            android:onClick="@{() -> viewModel.submit()}"
+            android:layout_margin="@dimen/space_xxxl" />
     </RelativeLayout>
 </layout>

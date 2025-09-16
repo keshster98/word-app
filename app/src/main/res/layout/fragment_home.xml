@@ -12,59 +12,73 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:elevation="@dimen/xs">
+        android:elevation="@dimen/space_xs">
 
         <!--Layout for the search and sort icon -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/xl"
+            android:layout_margin="@dimen/space_xl"
             android:weightSum="10"
             android:orientation="horizontal">
 
             <!--Search bar -->
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/svSearch"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="@dimen/space_nil"
+                android:layout_height="match_parent"
                 android:layout_weight="9"
-                android:queryHint="Search"
+                android:hint="@string/search"
+                android:padding="@dimen/space_xs"
+                android:drawableStart="@drawable/ic_search"
+                android:drawableTint="@color/g_border"
+                android:drawablePadding="@dimen/space_xs"
                 android:background="@drawable/search_view_bg" />
 
             <!--Sort Icon -->
             <ImageView
                 android:id="@+id/ivSort"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/xxxxl"
+                android:layout_width="@dimen/space_nil"
+                android:layout_height="@dimen/space_xxxxl"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/xxxs"
+                android:layout_margin="@dimen/space_xxxs"
                 android:src="@drawable/ic_sort" />
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <!--Recycler View -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvWords"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpTabs"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="100dp"
+        android:layout_height="@dimen/space_nil"
         android:layout_below="@id/cvSearch"
-        android:clipToPadding="false" />
+        android:layout_above="@id/tlTabs" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tlTabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:tabSelectedTextColor="@color/cs_blue"
+        app:tabTextColor="@color/black"
+        app:tabIndicatorHeight="@dimen/space_nil" />
 
     <!--Add new button -->
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabAdd"
+        app:backgroundTint="@color/cs_blue"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_marginEnd="@dimen/xxxl"
-        android:layout_marginBottom="@dimen/xxxl"
+        android:layout_marginEnd="@dimen/space_xxxl"
+        android:layout_marginBottom="@dimen/space_xxxl"
         android:text="@string/add_new"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/tlTabs"
         android:layout_alignParentEnd="true"
-        app:icon="@drawable/ic_outline_add_24"/>
+        app:icon="@drawable/ic_outline_add_24"
+        app:iconTint="@color/white"/>
 
 </RelativeLayout>
