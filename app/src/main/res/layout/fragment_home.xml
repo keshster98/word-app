@@ -71,6 +71,8 @@
     <!--Add new button -->
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabAdd"
+        app:backgroundTint="@color/cs_blue"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
@@ -79,6 +81,7 @@
         android:text="@string/add_new"
         android:layout_above="@id/tlTabs"
         android:layout_alignParentEnd="true"
-        app:icon="@drawable/ic_outline_add_24"/>
+        app:icon="@drawable/ic_outline_add_24"
+        app:iconTint="@color/white"/>
 
 </RelativeLayout>
