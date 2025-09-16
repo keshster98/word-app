@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.team.wordapp.R
 import com.team.wordapp.databinding.FragmentHome1Binding
 import com.team.wordapp.ui.adapter.WordAdapter
 import com.team.wordapp.ui.home.HomeFragmentDirections
@@ -36,6 +37,11 @@ class Home1Fragment : Fragment() {
 
         lifecycleScope.launch {
             viewModel.notCompletedWords.collect {
+                if (viewModel.notCompletedSize()) {
+                    binding.emptyView1.visibility = View.VISIBLE
+                } else {
+                    binding.emptyView1.visibility = View.GONE
+                }
                 adapter.setWords(it)
             }
         }

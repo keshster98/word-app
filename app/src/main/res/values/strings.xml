@@ -29,7 +29,11 @@
     <string name="date">Date</string>
     <string name="ascending">Ascending</string>
     <string name="descending">Descending</string>
+
     <string name="do_you_want_to_move_this_word_to_completed_list">Do you want to move this word to Completed List?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+
+    <string name="you_have_no_new_words_yet">You have no new words yet</string>
+    <string name="you_have_no_completed_words_yet">You have no completed words yet</string>
 </resources>

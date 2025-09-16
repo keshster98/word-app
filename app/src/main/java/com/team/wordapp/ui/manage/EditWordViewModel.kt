@@ -16,16 +16,21 @@ class EditWordViewModel: BaseManageViewModel() {
         }
     }
     override fun submit() {
-        word?.let {
-            repo.updateWord(it.id!!, it.copy(
-                title = title.value,
-                meaning = meaning.value,
-                synonyms = synonyms.value,
-                details = details.value
-            ))
-        }
         viewModelScope.launch {
-            _finish.emit(Unit)
+            if (!validateInputs()) return@launch
+
+            word?.let {
+                repo.updateWord(
+                    it.id!!,
+                    it.copy(
+                        title = title.value.trim(),
+                        meaning = meaning.value.trim(),
+                        synonyms = synonyms.value,
+                        details = details.value
+                    )
+                )
+                _finish.emit(Unit)
+            }
         }
     }
 }

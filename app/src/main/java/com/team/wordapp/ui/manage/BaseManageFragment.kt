@@ -1,10 +1,12 @@
 package com.team.wordapp.ui.manage
 
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -46,13 +48,14 @@ abstract class BaseManageFragment : Fragment() {
         // Catch the error and call the snack bar function
         lifecycleScope.launch {
             viewModel.error.collect {
-                showSnackbar(it)
+                showToast(it)
             }
         }
     }
 
     // Function to show the snack bar and put the error message in it
-    private fun showSnackbar(msg: String) {
-        Snackbar.make(binding.root, msg , Snackbar.LENGTH_LONG).show()
+    private fun showToast(msg: String) {
+        val toast = Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG)
+        toast.show()
     }
 }

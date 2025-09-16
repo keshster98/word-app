@@ -28,6 +28,8 @@
             android:text="@string/word"
             android:textStyle="bold"
             android:ellipsize="end"
+            android:singleLine="true"
+            android:maxLines="1"
             style="@style/TextAppearance.Material3.TitleMedium"/>
 
         <!--Definition-->
@@ -39,8 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_xs"
             android:text="@string/definition"
-            android:maxLines="5"
             android:ellipsize="end"
+            android:singleLine="true"
+            android:maxLines="1"
             style="@style/TextAppearance.Material3.TitleSmall"/>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

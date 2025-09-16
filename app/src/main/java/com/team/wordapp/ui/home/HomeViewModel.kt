@@ -45,6 +45,16 @@ class HomeViewModel(
         notCompletedWords.value = repo.getAllWords().filter { !it.isCompleted }.searchSort(searchState, sortState1, sortState2)
     }
 
+    fun notCompletedSize(): Boolean {
+        if(notCompletedWords.value.isEmpty()) return true
+        else return false
+    }
+
+    fun completedSize(): Boolean {
+        if(completedWords.value.isEmpty()) return true
+        else return false
+    }
+
     fun getCompletedWords() {
         completedWords.value = repo.getAllWords().filter { it.isCompleted }.searchSort(searchState, sortState1, sortState2)
     }

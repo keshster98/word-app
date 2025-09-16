@@ -77,7 +77,7 @@
         android:layout_marginEnd="@dimen/space_xxxl"
         android:layout_marginBottom="@dimen/space_xxxl"
         android:text="@string/add_new"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/tlTabs"
         android:layout_alignParentEnd="true"
         app:icon="@drawable/ic_outline_add_24"/>
 

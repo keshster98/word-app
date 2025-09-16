@@ -66,8 +66,8 @@ class HomeFragment: Fragment() {
 
         TabLayoutMediator(binding.tlTabs, binding.vpTabs) { tab, position ->
             when(position) {
-                0 -> tab.text = "First Fragment"
-                else -> tab.text = "Second Fragment"
+                0 -> tab.text = "New Word"
+                else -> tab.text = "Completed Word"
             }
         }.attach()
 

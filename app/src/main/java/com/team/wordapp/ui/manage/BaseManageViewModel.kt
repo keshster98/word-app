@@ -23,4 +23,25 @@ abstract class BaseManageViewModel(
     protected val _finish = MutableSharedFlow<Unit>()
     val finish = _finish.asSharedFlow()
     abstract fun submit()
+
+    protected suspend fun validateInputs(): Boolean {
+        val titleText = title.value.trim()
+        val meaningText = meaning.value.trim()
+
+        return when {
+            titleText.isBlank() && meaningText.isBlank() -> {
+                _error.emit("Title and Meaning cannot be empty!")
+                false
+            }
+            titleText.isBlank() -> {
+                _error.emit("Title cannot be empty!")
+                false
+            }
+            meaningText.isBlank() -> {
+                _error.emit("Meaning cannot be empty!")
+                false
+            }
+            else -> true
+        }
+    }
 }
