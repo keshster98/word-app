@@ -14,7 +14,9 @@ import com.team.wordapp.databinding.FragmentConfirmationBinding
 
 class ConfirmationFragment: DialogFragment() {
     private lateinit var binding: FragmentConfirmationBinding
-    private val viewModel: ConfirmationViewModel by viewModels()
+    private val viewModel: ConfirmationViewModel by viewModels {
+        ConfirmationViewModel.Factory
+    }
     private val args: ConfirmationFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

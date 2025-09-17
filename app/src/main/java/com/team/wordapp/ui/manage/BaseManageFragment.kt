@@ -16,9 +16,7 @@ import kotlinx.coroutines.launch
 abstract class BaseManageFragment : Fragment() {
     protected lateinit var binding: FragmentBaseManageBinding
     protected abstract val viewModel: BaseManageViewModel
-
     protected abstract fun getManageWordPageTitle(): String
-
     protected abstract fun getManageWordButtonLabel(): String
 
     override fun onCreateView(

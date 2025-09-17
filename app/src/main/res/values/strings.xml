@@ -37,6 +37,7 @@
     <!--Word Details Page-->
     <string name="word_details">Word Details</string>
     <string name="done">Done</string>
+    <string name="undo">Undo</string>
     <string name="update">Update</string>
 
     <!--Sort-->
@@ -47,7 +48,10 @@
     <string name="descending">Descending</string>
 
     <!--Completed word confirmation-->
-    <string name="do_you_want_to_move_this_word_to_completed_list">Do you want to move this word to Completed List?</string>
+    <string name="do_you_want_to_move_this_word_to_completed_list">Do you want to move this word to Completed Word list?</string>
+
+    <!--Back to new word confirmation-->
+    <string name="do_you_want_to_move_this_word_to_new_list">Do you want to move this word to New Word list?</string>
 
     <!--Completed word confirmation buttons-->
     <string name="yes">Yes</string>

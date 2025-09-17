@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_wordDetails_to_confirmationDone"
             app:destination="@id/confirmationDoneFragment" />
+        <action
+            android:id="@+id/action_wordDetailsFragment_to_confirmationUndoDoneFragment"
+            app:destination="@id/confirmationUndoDoneFragment" />
     </fragment>
     <fragment
         android:id="@+id/editWordFragment"
@@ -98,6 +101,16 @@
         android:name="com.team.wordapp.ui.comfirmationDone.ConfirmationDoneFragment"
         android:label="ConfirmationDoneFragment"
         tools:layout="@layout/fragment_confirmation_done">
+        <argument
+            android:name="word"
+            app:argType="com.team.wordapp.data.model.Word"
+            app:nullable="false" />
+    </dialog>
+    <dialog
+        android:id="@+id/confirmationUndoDoneFragment"
+        android:name="com.team.wordapp.ui.confirmationUndoDone.ConfirmationUndoDoneFragment"
+        android:label="ConfirmationUndoDoneFragment"
+        tools:layout="@layout/fragment_confirmation_undo_done">
         <argument
             android:name="word"
             app:argType="com.team.wordapp.data.model.Word"

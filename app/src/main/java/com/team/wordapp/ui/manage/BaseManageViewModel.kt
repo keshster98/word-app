@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 
 abstract class BaseManageViewModel(
-    val repo: WordRepo = WordRepo.getInstance()
+    val repo: WordRepo
 ) : ViewModel() {
     // Catch error message for the snack bar on the fragment
     val _error = MutableSharedFlow<String>()

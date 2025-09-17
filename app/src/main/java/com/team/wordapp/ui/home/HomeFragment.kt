@@ -17,10 +17,10 @@ import com.team.wordapp.ui.home.nestedHome.Home2Fragment
 import com.team.wordapp.ui.home.nestedHome.TabsAdapter
 import com.team.wordapp.R
 
-
 class HomeFragment: Fragment() {
-
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels {
+        HomeViewModel.Factory
+    }
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(

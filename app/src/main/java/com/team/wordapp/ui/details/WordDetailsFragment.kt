@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.team.wordapp.R
 import com.team.wordapp.databinding.FragmentWordDetailsBinding
 import kotlinx.coroutines.launch
 
@@ -27,7 +28,6 @@ class WordDetailsFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         lifecycleScope.launch {
-
             val word = args.word
 
             binding.run {
@@ -36,10 +36,20 @@ class WordDetailsFragment: Fragment() {
                 tvSynonyms.text = word.synonyms
                 tvDetails.text = word.details
 
-                mbDone.setOnClickListener {
-                    val action = WordDetailsFragmentDirections.
-                    actionWordDetailsToConfirmationDone(word)
-                    findNavController().navigate(action)
+                if (word.isCompleted) {
+                    binding.mbDone.text = getString(R.string.undo)
+                    binding.mbDone.setOnClickListener {
+                        val action = WordDetailsFragmentDirections
+                            .actionWordDetailsFragmentToConfirmationUndoDoneFragment(word)
+                        findNavController().navigate(action)
+                    }
+                } else {
+                    binding.mbDone.text = getString(R.string.done)
+                    binding.mbDone.setOnClickListener {
+                        val action = WordDetailsFragmentDirections
+                            .actionWordDetailsToConfirmationDone(word)
+                        findNavController().navigate(action)
+                    }
                 }
 
                 mbUpdate.setOnClickListener {

@@ -17,7 +17,8 @@ import kotlinx.coroutines.launch
 
 class Home1Fragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels(
-        ownerProducer = { requireParentFragment() }
+        ownerProducer = { requireParentFragment() },
+        factoryProducer = { HomeViewModel.Factory }
     )
     private lateinit var adapter: WordAdapter
     private lateinit var binding: FragmentHome1Binding
