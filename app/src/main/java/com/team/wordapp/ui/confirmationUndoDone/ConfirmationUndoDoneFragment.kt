@@ -1,4 +1,4 @@
-package com.team.wordapp.ui.comfirmationDone
+package com.team.wordapp.ui.confirmationUndoDone
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -10,21 +10,21 @@ import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.team.wordapp.R
-import com.team.wordapp.databinding.FragmentConfirmationDoneBinding
+import com.team.wordapp.databinding.FragmentConfirmationUndoDoneBinding
 import kotlin.getValue
 
-class ConfirmationDoneFragment: DialogFragment() {
-    private val viewModel: ConfirmationDoneViewModel by viewModels {
-        ConfirmationDoneViewModel.Factory
+class ConfirmationUndoDoneFragment: DialogFragment() {
+    private val viewModel: ConfirmationUndoDoneViewModel by viewModels {
+        ConfirmationUndoDoneViewModel.Factory
     }
-    private lateinit var binding: FragmentConfirmationDoneBinding
-    private val args: ConfirmationDoneFragmentArgs by navArgs()
+    private lateinit var binding: FragmentConfirmationUndoDoneBinding
+    private val args: ConfirmationUndoDoneFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentConfirmationDoneBinding.inflate(layoutInflater, container, false)
+        binding = FragmentConfirmationUndoDoneBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -33,7 +33,7 @@ class ConfirmationDoneFragment: DialogFragment() {
 
         binding.run {
             mbYes.setOnClickListener {
-                viewModel.done(args.word)
+                viewModel.undoDone(args.word)
                 findNavController().popBackStack(R.id.homeFragment, false)
                 setFragmentResult("manage_word", Bundle())
             }

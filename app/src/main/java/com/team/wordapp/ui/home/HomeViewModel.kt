@@ -1,14 +1,20 @@
 package com.team.wordapp.ui.home
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
+import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
+import com.team.wordapp.MyApp
 import com.team.wordapp.data.model.Word
 import com.team.wordapp.data.repo.WordRepo
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 
 class HomeViewModel(
-    protected val repo: WordRepo = WordRepo.getInstance()
+    val repo: WordRepo
 ): ViewModel() {
-
     var searchState = ""
     var sortState1 = 0
     var sortState2 = 0
@@ -24,8 +30,8 @@ class HomeViewModel(
                 else list.sortedByDescending { it.title }
             }
             1 -> {
-                if (sort1 == 0) list.sortedBy { it.createdAt }
-                else list.sortedByDescending { it.createdAt }
+                if (sort1 == 0) list.sortedBy { it.updatedAt }
+                else list.sortedByDescending { it.updatedAt }
             }
             else -> list
         }
@@ -41,13 +47,24 @@ class HomeViewModel(
         getCompletedWords()
     }
 
-    fun getNotCompletedWords() {
-        notCompletedWords.value = repo.getAllWords().filter { !it.isCompleted }.searchSort(searchState, sortState1, sortState2)
+    fun getCompletedWords() {
+        viewModelScope.launch {
+            repo.getAllWords().collect { words ->
+                completedWords.value = words
+                    .filter { it.isCompleted }
+                    .searchSort(searchState, sortState1, sortState2)
+            }
+        }
     }
 
-    fun notCompletedSize(): Boolean {
-        if(notCompletedWords.value.isEmpty()) return true
-        else return false
+    fun getNotCompletedWords() {
+        viewModelScope.launch {
+            repo.getAllWords().collect { words ->
+                notCompletedWords.value = words
+                    .filter { !it.isCompleted }
+                    .searchSort(searchState, sortState1, sortState2)
+            }
+        }
     }
 
     fun completedSize(): Boolean {
@@ -55,7 +72,17 @@ class HomeViewModel(
         else return false
     }
 
-    fun getCompletedWords() {
-        completedWords.value = repo.getAllWords().filter { it.isCompleted }.searchSort(searchState, sortState1, sortState2)
+    fun notCompletedSize(): Boolean {
+        if(notCompletedWords.value.isEmpty()) return true
+        else return false
+    }
+
+    companion object {
+        val Factory: ViewModelProvider.Factory = viewModelFactory {
+            initializer {
+                val myRepository = (this[APPLICATION_KEY] as MyApp).repo
+                HomeViewModel(repo = myRepository)
+            }
+        }
     }
 }
