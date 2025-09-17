@@ -1,3 +1,73 @@
 <resources>
+    <!--App title-->
     <string name="app_name">WordApp</string>
+
+    <!--Search bar-->
+    <string name="search">Search</string>
+
+    <!--Word card default text    -->
+    <string name="word">Word</string>
+    <string name="definition">Definition</string>
+
+    <!--fAB button text-->
+    <string name="add_new">Add New</string>
+
+    <!--Add new word page-->
+    <string name="add_word">Add Word</string>
+    <string name="title">Title</string>
+    <string name="meaning">Meaning</string>
+    <string name="synonyms">Synonyms</string>
+    <string name="details">Details</string>
+
+    <!--Add word button text-->
+    <string name="add">Add</string>
+
+    <!--Update word page-->
+    <string name="update_word">Update Word</string>
+
+    <!--Delete confirmation-->
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="you_want_to_delete_this_word">You want to delete this word?</string>
+    <string name="action_can_not_be_undone">Action can not be undone.</string>
+
+    <!--Delete confirmation buttons-->
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+
+    <!--Word Details Page-->
+    <string name="word_details">Word Details</string>
+    <string name="done">Done</string>
+    <string name="undo">Undo</string>
+    <string name="update">Update</string>
+
+    <!--Sort-->
+    <string name="sort_order">Sort Order</string>
+    <string name="sort_by">Sort By</string>
+    <string name="date">Date</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+
+    <!--Completed word confirmation-->
+    <string name="do_you_want_to_move_this_word_to_completed_list">Do you want to move this word to Completed Word list?</string>
+
+    <!--Back to new word confirmation-->
+    <string name="do_you_want_to_move_this_word_to_new_list">Do you want to move this word to New Word list?</string>
+
+    <!--Completed word confirmation buttons-->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!--Empty new words default icon text-->
+    <string name="you_have_no_new_words_yet">You have no new words yet</string>
+
+    <!--Empty completed words default icon text-->
+    <string name="you_have_no_completed_words_yet">You have no completed words yet</string>
+
+    <string name="new_word">New Word</string>
+    <string name="completed_word">Completed Word</string>
+
+    <string name="title_and_meaning_error">Title and Meaning cannot be empty!</string>
+    <string name="title_error">Title cannot be empty!</string>
+    <string name="meaning_error">Meaning cannot be empty!</string>
+
 </resources>
