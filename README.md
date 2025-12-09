@@ -46,7 +46,7 @@ Actions available:
 - Delete word
   
 
-## Live Demo — Download APK
+## Live Demo
 You can try the app instantly by **[downloading the latest APK](https://github.com/keshster98/word-app/releases/tag/v1.1.1)**. This APK installs on any Android device without additional setup.
 
 ## Running the Project Locally
